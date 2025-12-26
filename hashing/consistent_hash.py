@@ -38,7 +38,7 @@ class Rebalancer:
 class ConsistentHash:
     def __init__(self, replicas: int):
         self.replicas = replicas
-        self.hash_ring = SortedDict() # hash -> VNode
+        self.hash_ring = SortedDict()  # hash -> VNode
 
     def add_node(self, node: Node):
         for i in range(self.replicas * node.weight):
@@ -101,5 +101,3 @@ if __name__ == '__main__':
 
     engine.remove_node(n1)
     rebalancer.on_node_removed(n1)
-
-
